@@ -1,0 +1,487 @@
+// Importing Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+//------GENERAL SETTINGS -------------------------------
+
+// Universal reset also explicitly to all pseudo-elements
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body section,
+header {
+  padding: 0;
+  margin: 0;
+}
+
+// Define color variables
+$colors: (
+  //-------- PRIMARY ----------------------------
+  'soft-orange': hsl(35, 77%, 62%),
+  'soft-red': hsl(5, 85%, 63%),
+  //-------- NEUTRAL ----------------------------
+  'off-white': hsl(36, 100%, 99%),
+  'grayish-blue': hsl(233, 8%, 79%),
+  'dark-grayish-blue': hsl(236, 13%, 42%),
+  'very-dark-blue': hsl(240, 100%, 5%),
+  //--------STANDARD ---------------------------
+  'white': hsl(0, 0%, 100%),
+  'purple-transp': hsla(276, 77%, 7%, 0.2),
+  'grey': hsl(0, 0%, 50%),
+  'black': hsl(0, 0%, 0%),
+  'black-transp': hsla(0, 0%, 0%, 0.6),
+  'warning-red': hsl(0, 100%, 50%),
+  'green': hsl(103, 99%, 31%)
+);
+
+// Defining gradient variables separately
+$gradientOne: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+
+// Function to retrieve colors
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+//font-family: "Josefin Sans", sans-serif;
+// Typography Mixin with parameters
+@mixin typography($font-family: 'Inter', $weight, $size, $line-height, $color) {
+  font-family: 'Inter', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  color: $color;
+}
+
+// Example usage
+/* .myClass {
+  @include typography("Josefin Sans", 700, 2rem, 1.5, #333);
+}
+
+.body-text {
+  @include typography("Alata", 400, 1rem, 1.5, #666);
+} */
+/* QUERY FOR MOBILE FIRST */
+html,
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // This ensures that the total height is at least the height of the viewport
+  justify-content: center;
+  z-index: 0;
+  //background-color: color('white');
+}
+
+header {
+  width: 100%;
+  display: flex;
+  position: relative;
+  //margin-bottom: 2rem;
+  //background-color: bisque;
+}
+
+//============= NAVIGATION SECTION   ===========================
+.navTop_container {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: url(../assets/images/mobile/image-hero.jpg);
+  background-size: cover; // Ensures the image fits within the container
+  background-position: center; // Center the image
+  background-repeat: no-repeat; // Prevent repeating
+  z-index: 3;
+  //background-color: coral;
+
+  &__logoMenuHam_wrapper {
+    width: 100%;
+    height: 5rem; //🚩I has been added and give a height of 5 so it doesn't affect the slogan on desktop
+    display: flex;
+    justify-content: space-between;
+    //padding: 0.5rem 1rem; //🚩This was the solution to push the hamburger away from the right border
+    //background-color: color('black-transp');
+    //background-color:darkgreen;
+  }
+  &__logoTop {
+    width: 5rem;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    padding: 0;
+    //background-color: indigo;
+    img {
+      //background-color: aqua;
+      margin-left: 0;
+    }
+  }
+  &__menuContainer {
+    width: 80%;
+    display: flex;
+    padding: 0;
+    position: relative;
+    justify-content: right;
+    //background-color: blueviolet;
+  }
+
+  a {
+    padding: 14px 16px;
+    text-decoration: none;
+    color: color('white');
+    //background-color: darkgreen;
+    &:hover {
+      color: color('black');
+      background-color: #ddd;
+    }
+  }
+  &__navMenu {
+    width: 80%;
+    height: 20rem;
+    top: -15rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    //margin-left: 1.5rem;
+    margin: 0 auto;
+    z-index: 3;
+    position: absolute;
+    transition: transform 0.7s ease;
+    //background-color: dodgerblue;
+  }
+
+  &__navMenu--visible {
+    //🚩The Magic to the dropdown menu
+    transform: translateY(20rem); // ✅ Translates the nav menu down
+  }
+  ul {
+    width: 100%;
+    height: 20rem;
+    color: color('white');
+    list-style: none;
+    display: block;
+    //background-color: forestgreen;
+  }
+
+  li {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include typography('Josefin Sans', 400, 1rem, 2, color('white'));
+    border: 1px solid color('white');
+    //position:absolute;
+    background-color: color('black-transp');
+    transition: position 4s ease;
+    //background-color: dimgray;
+    &:hover {
+      background-color: color('soft-orange');
+    }
+  }
+
+  //----------- Hamburger Icon  ---------------
+  &__hamburgerClassIcon {
+    margin-top: 0.7rem;
+    width: 3rem;
+    height: 3rem;
+    display: inline-block; //❓
+    justify-content: center;
+    margin-right: 0.7rem;
+    z-index: 11;
+    cursor: pointer;
+    //background-color: chartreuse;
+
+    &:hover,
+    &:focus {
+      // 🚩Combine :hover and :focus
+      .bar1,
+      .bar2,
+      .bar3 {
+        //wow🚩🎊✨🎉
+        background-color: color('fuchsia');
+      }
+    }
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: color('black');
+    margin: 6px auto; //🚩Solution to center the bars
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+
+  .change .bar2 {
+    opacity: 0;
+  }
+
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+}
+
+//=============================================================
+
+//============= MAIN     ====================================
+// ----- Grid Container ----------------------------
+
+.gridContainer {
+  flex: 1 0 auto; // This allows the main content to grow and shrink but not shrink smaller than its content and push the footer to the bottom
+  width: 100%;
+  min-height: 100vh; // Ensures full viewport height
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  z-index: 1;
+  position: relative;
+  //background-color: aqua;
+}
+
+.heroImagePlusIntro {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  //background-color: blueviolet;
+
+  &__webImage {
+    width: 100%;
+    height: 20rem; //🚩I always need to add this to be able to see the image
+    z-index: 1;
+    background-image: url(../assets/images/image-web-3-mobile.jpg);
+    background-size: cover;
+    margin-bottom: 2rem;
+    //background-color: blueviolet;
+  }
+
+  &__intro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    //background-color: burlywood;
+  }
+
+  &__mainTitle {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1rem;
+    h1 {
+      @include typography('Inter', 900, 2rem, 1.2, color('black'));
+    }
+  }
+
+  &__textContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //background-color: brown;
+    p {
+      @include typography('Inter', 300, 1rem, 1.5, color('black'));
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__readMore {
+    width: 9rem;
+    height: 2.5rem;
+    //justify-content: center;
+    align-items: center;
+    letter-spacing: 0.2rem;
+    padding-left: 0.5rem;
+    padding-top: 0.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border-style: none;
+    text-align: center;
+    @include typography('Inter', 600, 1rem, 1.5, color('black'));
+    transition: transform 0.7s ease;
+    background-color: color('soft-red');
+    //background-color: deeppink;
+    &:hover,
+    &:focus {
+      color: color('white');
+      border-radius: 5px;
+      background-color: color('fuchsia');
+      transform: scale(1.1);
+      border: 3px solid color('violet');
+    }
+  }
+}
+
+.newContainer {
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background-color: color('black');
+  //background-color: chartreuse;
+  &__newTitle {
+    @include typography('Inter', 600, 2rem, 1.5, color('soft-orange'));
+    margin-bottom: 1rem;
+  }
+  &__newItem {
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    @include typography('Inter', 600, 1.5rem, 1.5, color('white'));
+  }
+
+  p {
+    @include typography('Inter', 400, 1rem, 1.5, color('grayish-blue'));
+  }
+
+  hr {
+    border: 1px solid color('grayish-blue');
+    margin-bottom: 1rem;
+  }
+}
+
+.bottomRow_Container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  //background-color: chocolate;
+}
+
+.rowItem {
+  width: 25rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-top: 0;
+  //background-color: darkgreen;
+  &__image {
+    width: 50%;
+    margin-right: 1rem;
+  }
+  &__rightSide {
+    width: 65%;
+    //background-color: fuchsia;
+  }
+  &__number {
+    width: 100%;
+    @include typography('Inter', 800, 1.5rem, 1.5, color('soft-red'));
+  }
+  &__title {
+    width: 100%;
+    @include typography('Inter', 800, 1.2rem, 1.5, color('black'));
+  }
+  &__text {
+    width: 100%;
+    @include typography('Inter', 400, 1rem, 1.5, color('dark-grayish-blue'));
+  }
+}
+
+//------   FOOTER    ----------------
+
+.attribution {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  top: 12rem;
+  padding: 0.5rem;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 3rem; // Keeps the footer at the bottom but only after all other content
+  color: color('grey');
+  //background-color: aqua;
+}
+.attribution a {
+  color: color('black');
+  text-decoration: none;
+}
+
+//============= MEDIA QUERY FOR DESKTOPS AND TABLETS ==================================
+
+@media (min-width: 1024px) {
+  .navTop_container {
+    max-width: 85rem;
+    margin:0 auto;
+    &__navMenu {
+      width: 30rem; // ✅ Adjust width to auto for desktop
+      top: 0.5rem; // ✅ Reset top for desktop
+      position: relative; // ✅ Override the position for desktop view
+      margin-right: 0.7rem;
+    }
+
+    ul {
+      display: flex; // ✅ Ensure ul uses flexbox
+      justify-content: space-between;
+    }
+
+    li {
+      border: none;
+      @include typography('Josefin Sans', 400, 1rem, 2, color('black'));
+      background-color: transparent; //✅🚩this fixed it.
+    }
+
+    &__hamburgerClassIcon {
+      display: none; // ✅ Hide the hamburger icon on desktop
+    }
+  }
+
+  .gridContainer {
+    max-width: 85rem; // ✅ Adjust width to auto for desktop
+    display: grid;
+    justify-content: center;
+    //align-items: start;
+    align-content:flex-start;//🚩this was the solution to keep the grid attached to teh nav
+    margin:0 auto;
+    grid-template-columns: repeat(3fr);
+    grid-template-rows: repeat(4fr);
+    grid-template-areas:
+      'heroeImage heroImage new'
+      'heroeImage heroImage new'
+      'title textContent new'
+      'base base base';
+    //background-color: aqua;
+  }
+
+  .heroImagePlusIntro__webImage {
+    grid-area: heroImage;
+  }
+  .newContainer {
+    grid-area: new;
+  }
+
+  .heroImagePlusIntro__intro {
+    flex-direction: row;
+    margin-bottom: 2rem;
+    //background-color: burlywood;
+  }
+
+  .heroImagePlusIntro__mainTitle {
+    width: 90%;
+    grid-area: title;
+    margin-right:1rem;
+  }
+
+  .heroImagePlusIntro__textContent {
+    grid-area: textContent;
+  }
+
+  .bottomRow_Container {
+    flex-direction: row;
+    grid-area: base;
+
+    //background-color: chocolate;
+  }
+  
+}
