@@ -1,47 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Expenses chart component</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
-  <link rel="stylesheet" href="./css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <script defer src="./scripts/script.js"></script>
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Expenses chart component</title>
 
-  My balance
-  $921.48
-
-  Spending - Last 7 days
-
-  mon
-  tue
-  wed
-  thu
-  fri
-  sat
-  sun
-
-  Total this month
-  $478.33
-
-  +2.4%
-  from last month
-  
-  <footer>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> Coded by
-      <a href="https://www.frontendmentor.io/profile/Junbol" target="_blank">Junier Bolívar © 2024</a>
-    </div>
-  </footer>
-</body>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script defer src="./scripts/script.js"></script>
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <div class="myBalance">
+          <div class="myBalance__totalGrpTop">
+            <div class="myBalance__miniTitleTop">My balance</div>
+            <div class="myBalance__totalTop">$921.48</div>
+          </div>
+          <div class="myBalance__circles">
+            <div class="myBalance__whiteCircle"></div>
+            <div class="myBalance__blackCircle"></div>
+          </div>
+        </div>
+        <div class="spending">
+          <div class="spending__title">Spending - Last 7 days</div>
+          <div class="bars">
+            <div class="barGrp">
+              <div class="amount" tabindex="0"></div>
+              <div class="bar barMon" tabindex="0"></div>
+              <div class="day">mon</div>
+            </div>
+            <div class="barGrp">
+              <div class="amount"></div>
+              <div class="bar barTue" tabindex="0"></div>
+              <div class="day">tue</div>
+            </div>
+            <div class="barGrp">
+              <div class="amount"></div>
+              <div class="bar barWed" tabindex="0"></div>
+              <div class="day">wed</div>
+            </div>
+            <div class="barGrp">
+              <div class="amount"></div>
+              <div class="bar barThu" tabindex="0"></div>
+              <div class="day">thu</div>
+            </div>
+            <div class="barGrp">
+              <div class="amount"></div>
+              <div class="bar barFri" tabindex="0"></div>
+              <div class="day">fri</div>
+            </div>
+            <div class="barGrp">
+              <div class="amount"></div>
+              <div class="bar barSat" tabindex="0"></div>
+              <div class="day">sat</div>
+            </div>
+            <div class="barGrp">
+              <div class="amount"></div>
+              <div class="bar barSun" tabindex="0"></div>
+              <div class="day">sun</div>
+            </div>
+          </div>
+          <hr/>
+          <div class="bottomRow">
+            <div class="bottomRow__totalGrpBottom">
+              <div class="bottomRow__miniTitleBottom">Total this month</div>
+              <div class="bottomRow__totalBottom">$478.33</div>
+            </div>
+            <div class="percentageGrp">
+              <div class="bottomRow__percentage">+2.4%</div>
+              <div class="bottomRow__month">from last month</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> Coded by
+        <a href="https://www.frontendmentor.io/profile/Junbol" target="_blank">Junier Bolívar © 2024</a>
+      </div>
+    </footer>
+  </body>
 </html>
