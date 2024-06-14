@@ -54,8 +54,6 @@ This is a solution to the [Loopstudios landing page challenge on Frontend Mentor
 
 ## css:
 
-- You need to grid area you containers not the items inside your containers.
-
 ```
  &:hover .amount,
   &:focus-within .amount {//🚩this was the solution (-within) so the amount stay in focus after click
