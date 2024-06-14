@@ -48,7 +48,9 @@ This is a solution to the [Loopstudios landing page challenge on Frontend Mentor
 
 ### What I learned
 
-- Working with the Grid was a challenge. But gradually I am making progress. A good working grid is a combination of grid and flexbox settings.
+## HTML:
+
+- Remember to add the  tabindex="0" attribute to use :focus on css    <div class="bar barMon" tabindex="0"></div>.
 
 - You need to grid area you containers not the items inside your containers.
 

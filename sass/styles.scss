@@ -86,7 +86,7 @@ main {
 }
 
 .card {
-  width: 20rem;
+  width: 24rem;
   height: 27rem;
   display: flex;
   flex-direction: column;
@@ -109,14 +109,19 @@ main {
   background-color: color('soft-red');
 
   &__totalGrpTop {
-    width: 6rem;
+    width: 7rem;
     height: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 0rem;
     align-items: left;
     //background-color: darkgreen;
+  }
+
+  &__monthTotalTop {
+    @include typography('DM Sans', 700, 1.2rem, 1.5, color('white'));
   }
 
   &__miniTitleTop {
@@ -126,7 +131,7 @@ main {
     @include typography('DM Sans', 700, 1.2rem, 1.5, color('white'));
   }
   &__circles {
-    width: 4rem;
+    width: 3rem;
     height: 3rem;
     display: flex;
     justify-content: right;
@@ -244,7 +249,7 @@ hr {
   align-items: flex-end;
   //background-color: bisque;
   &__totalGrpBottom {
-    width: 6rem;
+    width: 8rem;
     height: 3rem;
   }
   &__miniTitleBottom {
