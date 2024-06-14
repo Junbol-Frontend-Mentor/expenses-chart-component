@@ -1,13 +1,22 @@
-## Welcome! 👋
+# Frontend Mentor - Expenses chart component
 
-![Design preview for the Loopstudios landing page coding challenge](./design/desktop-preview.jpg)
+![Design preview for the Expenses chart component coding challenge](./design/desktop-preview.jpg)
+
+## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
 
-# Frontend Mentor - Loopstudios landing page solution
+[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
 
-This is a solution to the [Loopstudios landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/loopstudios-landing-page-N88J5Onjw). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+**To do this challenge, you need a decent understanding of HTML, CSS and JavaScript.**
 
+## The challenge
+
+# Frontend Mentor - Expenses chart component solution
+
+This is a solution to the [Expenses chart component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+
+## Table of contents
 ## Table of contents
 
 - [Overview](#overview)
