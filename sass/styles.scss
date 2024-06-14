@@ -234,7 +234,7 @@ main {
 }
 
 .day {
-  @include typography('DM Sans', 500, 0.8rem, 1.5, color('black'));
+  @include typography('DM Sans', 600, 0.8rem, 1.5, color('black'));
 }
 
 hr {
